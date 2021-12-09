@@ -1,32 +1,17 @@
 <template>
   <el-container>
-    <el-aside width="200px">Aside</el-aside>
+    <el-aside width="200px">
+      <el-menu>
+        <el-sub-menu>
+          <router-link to="/first"><el-menu-item index="1-1">first</el-menu-item></router-link>
+          <router-link to="/second"><el-menu-item index="1-2">second</el-menu-item></router-link>
+        </el-sub-menu>
+      </el-menu>
+    </el-aside>
     <el-container>
       <el-header>Header</el-header>
       <el-main>
-        <el-form :model="form">
-          <el-form-item label="姓名">
-            <el-input v-model="form.name"></el-input>
-          </el-form-item>
-          <el-form-item label="年龄">
-            <el-input-number v-model="form.age"></el-input-number>
-          </el-form-item>
-          <el-form-item label="性别">
-            <el-select v-model="form.sex">
-              <el-option label="男" value="0"></el-option>
-              <el-option label="女" value="1"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item>
-            <el-button @click="handleSubmit">提交</el-button>
-          </el-form-item>
-        </el-form>
-        <div v-if="isShowRed" style="width: 200px; height: 200px; background: red">小红</div>
-        <div v-if="!isShowRed" style="width: 200px; height: 200px; background: blue">小蓝</div>
-        <el-button @click="handleChange">切换</el-button>
-        <ul>
-          <li v-for="item in list" :key="item.value">{{ item.label}}</li>
-        </ul>
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
